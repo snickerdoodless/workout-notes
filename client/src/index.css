@@ -1,0 +1,313 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Bebas+Neue&display=swap');
+
+/* layout */
+:root {
+  --primary: #32cd32;    /* Lime green */
+  --secondary: #228b22;  /* Forest green */
+  --accent: #98fb98;     /* Pale green */
+  --error: #ef476f;      /* Bright red */
+  --background: #f7fff7;
+  --text: #2d3436;
+  --gradient: linear-gradient(120deg, #32cd32, #228b22);
+}
+
+body {
+  background: var(--background);
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+
+/* Decorative background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(152, 251, 152, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(50, 205, 50, 0.1) 0%, transparent 25%),
+    linear-gradient(45deg, transparent 48%, rgba(34, 139, 34, 0.03) 49%, rgba(34, 139, 34, 0.03) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(34, 139, 34, 0.03) 49%, rgba(34, 139, 34, 0.03) 51%, transparent 52%);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Enhanced Navbar */
+header {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(34, 139, 34, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+header a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8em;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header a::before {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../public/workout.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pages {
+  max-width: 1400px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.workout-details {
+  background: #fff;
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 25px 30px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(34, 139, 34, 0.1);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary);
+}
+
+.workout-details:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(34, 139, 34, 0.15);
+}
+
+.workout-details::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, transparent 50%, rgba(152, 251, 152, 0.1) 50%);
+  border-radius: 0 12px 0 0;
+}
+
+.workout-details h4 {
+  margin: 0 0 15px 0;
+  font-size: 1.4em;
+  color: var(--secondary);
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 1em;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f0fff0;
+  color: var(--text);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.workout-details span:hover {
+  background: var(--error);
+  color: white;
+}
+
+.workout-details span::before {
+  content: "×";
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* Form styling */
+.create {
+  background: #fff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(34, 139, 34, 0.1);
+  position: sticky;
+  top: 100px;
+  border: 1px solid rgba(152, 251, 152, 0.3);
+}
+
+.create::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 48%, rgba(152, 251, 152, 0.2) 49%, rgba(152, 251, 152, 0.2) 51%, transparent 52%);
+  background-size: 20px 20px;
+  border-radius: 12px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.create h3 {
+  margin: 0 0 25px 0;
+  color: var(--secondary);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.create h3::before {
+  content: "🎯";
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+input {
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 2px solid rgba(34, 139, 34, 0.2);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  background: rgba(247, 255, 247, 0.5);
+}
+
+input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.1);
+}
+
+form button {
+  background: var(--gradient);
+  border: 0;
+  color: #fff;
+  padding: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+form button::after {
+  content: "💪";
+  font-size: 1.1em;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.2);
+}
+
+form button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+form button:hover::before {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+div.error {
+  padding: 12px 15px;
+  background: #fff5f7;
+  border: 2px solid var(--error);
+  color: var(--error);
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+input.error {
+  border: 2px solid var(--error);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.workout-details {
+  animation: slideIn 0.3s ease forwards;
+}
